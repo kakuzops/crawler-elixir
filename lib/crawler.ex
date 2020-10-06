@@ -17,4 +17,9 @@ defmodule Crawler do
         IO.inspect(reason)
     end
   end
+
+  def content({_, urls}) do
+    Enum.flat_map(urls, & &1)
+    |> Enum.map(&{:name, &1})
+  end
 end
